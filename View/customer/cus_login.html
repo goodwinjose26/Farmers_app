@@ -1,0 +1,28 @@
+<script src="Controller/cus_logincontroller.js"></script>
+<div class="center-me w-50 border border-primary">
+    <form action="" id="myForm" method="post" style="width: 30%;margin: auto;position: relative;">
+        <h3 class="text-center text-secondary">Login</h3>
+        <div class="row form-group">
+            <div class="col-md-12">
+                <label for="uname">User Name</label>
+                <input type="text" name="uname" id="uname" class="form-control" placeholder="User Name" minlength="3"
+                    required>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-12">
+                <label for="passwd">Password</label>
+                <input type="password" name="passwd" id="passwd" class="form-control" placeholder="Password" required>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-md-12 text-right">
+                <button type="reset" id="cancel" class="btn btn-secondary">Cancel</button>
+                <button type="submit" id="submit" class="btn btn-success">Login</button>
+            </div>
+        </div>
+        <div class="text-center" id="msg"></div>
+    </form>
+    <div class="text-right"  style="text-align: center;">not registered ? <a href="?id=cus_register">SignUp</a> </div>
+    <!-- <div class="text-right"><a href="?page=guest/forgotpassword">Forgot Password ? </a> </div> -->
+</div>

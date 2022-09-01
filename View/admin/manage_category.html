@@ -1,0 +1,87 @@
+<script src="Controller/categoryController.js"></script>
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">Adding Category</h1>
+    </div>
+</div>
+<form action="" class="myForm" id="myForm" method="post">.
+
+<div class="row">
+    <!--<div class="col-md-6">
+      <label for="name" class="text-primary">Item id</label>
+                     <input type="text" name="eid" id="eid" class="form-control" placeholder="Employee id" minlength="2" readonly    >
+    </div> -->
+    <div class="col-md-6">
+        <label for="name" class="text-primary">Category name</label>
+        <input type="text" name="cat_name" id="cat_name" class="form-control" placeholder="Category name" minlength="2"
+            required>
+    </div>
+    <div class="col-md-6">
+        <label for="name" class="text-primary">Description</label>
+        <input type="text" name="cat_desc" id="cat_des" class="form-control" placeholder="Category Description" minlength="2"
+            required>
+    </div>
+</div>
+
+<div class="row form-group">
+    
+    <div class="col-md-12 text-right">
+       
+        <button type="submit" id="submit" class="btn btn-success">Insert</button>
+    </div>
+</div>
+
+
+</form>
+
+<script>
+    $(document).ready(function($) {
+    
+  
+      
+      jQuery.validator.addMethod("lettersonly", function(value, element) {
+      return this.optional(element) || /^[a-z]+$/i.test(value);
+    }, "Letters only please"); 
+    
+    
+    
+    $('#myForm').validate({
+      rules: {
+        
+        cat_name: {
+          required: true,
+            lettersonly: true
+        }
+        ,
+        cat_desc: {
+          required: true,
+          lettersonly: true
+        }
+    
+     },
+     messages: {
+    
+      cat_name: {
+        required: "Name required",
+        lettersonly:"Only Alphabets"
+    
+      }
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+      $(element).addClass('is-valid');
+    },
+    }); 
+    });
+    
+    
+    </script>

@@ -1,0 +1,59 @@
+<script src="Controller/cus_book.js"></script>
+<script>
+    function showtotal() {
+    //alert(str);
+          var pprice=document.getElementById("pprice").value;  
+           var q=document.getElementById("q").value; 
+           var total=pprice*q; 
+           //alert(total);
+           document.getElementById("total").value = total;
+    }
+    </script>
+
+                                                           
+<div class="center-me w-50 border border-primary">
+    <form action="" id="myForm6" method="post">
+        <input type="hidden" name="cid" id="cid">
+        <h3 class="text-center text-secondary">Book Product</h3>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Name</label>
+                <input type="text" name="cname" id="cname" class="form-control"  readonly>
+            </div>
+            
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Price</label>
+                <input type="text" name="pprice" id="pprice" class="form-control" placeholder="Product Name" readonly>
+            </div>
+            
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Qunatity</label>
+                <input type="number" name="q" id="q" onkeyup="showtotal()" class="form-control" placeholder="Product Quantity" required>
+            </div>
+            
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">total price</label>
+                <input readonly type="number" name="total" id="total" class="form-control" placeholder="total price" required>
+            </div>
+            
+        </div>
+        
+        
+        
+        
+        <div class="row form-group">
+            <div class="col-md-12 text-right">
+                <button type="reset" id="cancel" class="btn btn-secondary">Cancel</button>
+                <button type="submit" id="submit" class="btn btn-success">ADD TO CART</button>
+            </div>
+        </div>
+        <div class="text-center" id="msg"></div>
+    </form>
+</div>

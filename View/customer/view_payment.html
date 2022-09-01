@@ -1,0 +1,55 @@
+
+<script src="Controller/cus_paymentcontroller.js"></script>
+
+                                                              
+<div class="col-md-6">
+    <form action="" id="myForm6" method="post">
+        <input type="hidden" name="cid" id="cid">
+        <h3 class="text-center text-secondary">PAYMENT</h3>
+        <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;">
+            <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;">
+                <label for="uname" style="color:rgb(10, 10, 10);">Total Price</label>
+                <input type="text" name="cname" id="cname" class="form-control"  readonly required>
+            </div>
+            
+        </div>
+        <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;">
+            <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;">
+                <label for="uname"  style="color:rgb(10, 10, 10);">Card Type</label>
+                <select name="ctype" class="form-control" id="ctype" required>
+                    <option value="" disabled selected>--Select--</option>
+                    <option value="Debit_card">Debit_card</option>
+                    <option value="Credit_card">Credit_card</option>
+                </select>
+            </div>
+        </div>
+        <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;" >
+            <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;" >
+                <label for="uname" style="color:rgb(9, 9, 9);">Card Number</label>
+                <input type="text" pattern="[0-9]{12}" required name="c1" id="c1" maxlength="12" class="form-control" >
+            </div>
+            <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;" >
+                <label for="uname" style="color:rgb(8, 8, 8);">Cvv</label>
+                <input type="text" pattern="[0-9]{3}" required name="cvv" id="cvv" maxlength="3" class="form-control" >
+            </div>
+            <div class="center" style="margin-left: 50px  !important;margin-right: 50px  !important;" >
+                <label for="uname" style="color:rgb(8, 8, 8);">Expiry date</label>
+                <input type="month" name="cvv" id="cvv" class="form-control" required>
+            </div>        </div>
+
+            <div><br></div>
+
+     
+        
+        
+        
+        
+        <div class="row form-group">
+            <div class="col-md-12 text-right">
+                <button type="reset" id="cancel" class="btn btn-secondary">Cancel</button>
+                <button type="submit" id="submit" class="btn btn-success">PAYMENT</button>
+            </div>
+        </div>
+        <div class="text-center" id="msg"></div>
+    </form>
+</div>

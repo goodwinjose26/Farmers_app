@@ -1,0 +1,137 @@
+<script src="Controller/edititemController.js"></script>
+
+
+<div class="center-me w-50 border border-primary">
+    <form action="" id="myForm6" method="post">
+        <input type="hidden" name="cid" id="cid">
+        <h3 class="text-center text-secondary">Edit Product</h3>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Name</label>
+                <input type="text" name="cname" id="cname" class="form-control"  required>
+            </div>
+            
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Price</label>
+                <input type="text" name="pprice" id="pprice" class="form-control" placeholder="Product Name" required>
+            </div>
+            
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Qunatity</label>
+                <input type="text" name="q" id="q" class="form-control" placeholder="Product Quantity" required>
+            </div>
+            
+        </div>
+        
+        
+        
+        
+        <div class="row form-group">
+            <div class="col-md-12 text-right">
+                <button type="reset" id="cancel" class="btn btn-secondary">Cancel</button>
+                <button type="submit" id="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+        <div class="text-center" id="msg"></div>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function($) {
+    
+    
+    jQuery.validator.addMethod("birth", function (value, element) {
+            var year = value.split('-');
+            
+            if (parseInt(year[0]) <= 2012 )
+                return true;
+            else
+                return false;
+        });
+    
+    
+      jQuery.validator.addMethod("greaterThan", 
+    function(value, element, params) {
+    
+        if (!/Invalid|NaN/.test(new Date(value))) {
+            return new Date(value) > new Date($(params).val());
+        }
+    
+        return isNaN(value) && isNaN($(params).val()) 
+            || (Number(value) > Number($(params).val())); 
+    },'Must be greater than {0}.');
+    
+    
+      
+      jQuery.validator.addMethod("lettersonly", function(value, element) {
+      return this.optional(element) || /^[a-z ]+$/i.test(value);
+    }, "Letters only please"); 
+    
+    
+    
+    $('#myForm6').validate({
+      rules: {
+        cname: {
+            required: true,
+            lettersonly: true 
+  
+    },
+    
+    
+      
+        pprice: {
+            required: true,
+        number: true
+    
+      },
+        q: {
+        required: true,
+        number:true
+    }
+         
+    
+             },
+
+     messages: {
+        cname: {
+        required: "Type name required",
+        lettersonly:"Only Alphabets"
+    
+      },
+      
+      
+    
+      cname: {
+        required: "Brand required",
+        lettersonly:"Only Alphabets"
+    
+    
+      },
+      q : {
+        required: "Image required",
+        lettersonly:"Only Alphabets"
+      }
+    
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+      $(element).addClass('is-valid');
+    }
+    }); 
+    });
+    
+    
+    </script>

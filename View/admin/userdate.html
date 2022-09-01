@@ -1,0 +1,41 @@
+<script src="Controller/rptdatebetcontroller.js"></script>
+<div class="container bg-light shadow p-3" id="main_div">
+    <form action="" method="post" id="myform">
+        <H3>FLIGHT SEARCH</H3>
+        <div class="row form-group">
+            <div class="col">
+                <label for="date">From Date</label>
+                <input type="date" id="fdate" name="fdate" class="form-control">
+            </div>
+            <div class="col">
+                <label for="date">To Date</label>
+                <input type="date" id="todate" name="todate" class="form-control">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col">
+                <button class="btn btn-success form-control" type="submit">Find</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<h2 class="text-danger text-center" id="msg">Nothing Found!</h2>
+
+<div class="container mt-5" id="add_div">
+    <h2 class="text-center text-primary"> Flight List</h2>
+    <h4 class="text-center text-primary" id="msg"></h4>
+    <table class="table table-responsive-lg table-light table-striped">
+        <thead class="thead-dark">
+            <th>Sl.No</th>
+            <th>Flight Number</th>
+            <th>Flight Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>from</th>
+            <th>To</th>
+            
+        </thead>
+        <tbody id="tb"></tbody>
+    </table>
+</div>

@@ -1,0 +1,164 @@
+<script src="Controller/dropdown1.js"></script>
+<script src="Controller/itemController.js"></script>
+
+
+<div class="row">
+  <div class="col-lg-12">
+      <h1 class="page-header">PRODUCT</h1>
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+
+<div class="row ">
+  
+    <div class="col-sm-6">
+        <div class=" ">
+            <form action="" class="myForm4" id="myForm4" method="post">
+              
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label for="name">Product Name</label>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Name" minlength="3"
+                            required>
+                    </div>
+                </div>
+               
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label for="cat">Category</label>
+                      
+                             <select name="cname" id="cname" class="form-control" >
+
+                             </select>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label for="name">Product Price</label>
+                        <input type="text" name="pprice" id="pprice" class="form-control" placeholder="product price" minlength="1"
+                            required>
+                    </div>
+                </div>
+                
+
+                <div class="row form-group">
+                    <div class="col-md-12">
+                        <label for="name">Type Image</label>
+                        <input type="file" name="productimage" id="productimage" class="form-control" placeholder="Product Image" 
+                            required>
+                    </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-12">
+                      <label for="name">Product Quantity</label>
+                      <input type="number" name="q" id="q" class="form-control" placeholder="product Quantity" minlength="1"
+                          required>
+                  </div>
+              </div>
+                <div class="row form-group">
+                    <div class="col-md-12 text-right">
+                        <button type="reset" id="cancel" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" id="submit" class="btn btn-success">Save</button>
+                    </div>
+                </div>
+                <div class="text-center" id="msg"></div>
+            </form>
+          
+        </div>
+    </div>
+</div>
+<div class="col-sm-3"></div>
+</div>
+<script>
+    $(document).ready(function($) {
+    
+    
+    jQuery.validator.addMethod("birth", function (value, element) {
+            var year = value.split('-');
+            
+            if (parseInt(year[0]) <= 2012 )
+                return true;
+            else
+                return false;
+        });
+    
+    
+      jQuery.validator.addMethod("greaterThan", 
+    function(value, element, params) {
+    
+        if (!/Invalid|NaN/.test(new Date(value))) {
+            return new Date(value) > new Date($(params).val());
+        }
+    
+        return isNaN(value) && isNaN($(params).val()) 
+            || (Number(value) > Number($(params).val())); 
+    },'Must be greater than {0}.');
+    
+    
+      
+      jQuery.validator.addMethod("lettersonly", function(value, element) {
+      return this.optional(element) || /^[a-z ]+$/i.test(value);
+    }, "Letters only please"); 
+    
+    
+    
+    $('#myForm4').validate({
+      rules: {
+        name: {
+            required: true,
+            lettersonly: true 
+  
+    },
+    
+    
+      
+        pprice: {
+            required: true,
+        number: true
+    
+      },
+        productimage: {
+        required: true
+    }
+         
+    
+             },
+
+     messages: {
+        name: {
+        required: "Type name required",
+        lettersonly:"Only Alphabets"
+    
+      },
+      
+      
+    
+      cname: {
+        required: "Brand required",
+        lettersonly:"Only Alphabets"
+    
+    
+      },
+      productimage : {
+        required: "Image required",
+        lettersonly:"Only Alphabets"
+      }
+    
+    },
+    errorElement: 'span',
+    errorPlacement: function (error, element) {
+      error.addClass('invalid-feedback');
+      element.closest('.form-group').append(error);
+    },
+    highlight: function (element, errorClass, validClass) {
+      $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+      $(element).removeClass('is-invalid');
+      $(element).addClass('is-valid');
+    }
+    }); 
+    });
+    
+    
+    </script>

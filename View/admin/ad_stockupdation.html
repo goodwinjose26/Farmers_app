@@ -1,0 +1,42 @@
+<script src="Controller/edititemController.js"></script>
+
+
+<div class="center-me w-50 border border-primary">
+    <form action="" id="myForm6" method="post">
+        <input type="hidden" name="cid" id="cid">
+        <h3 class="text-center text-secondary">Stock Updation</h3>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Name</label>
+                <input type="text" name="cname" id="cname" class="form-control"  readonly>
+            </div>
+            
+        </div>
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Price</label>
+                <input type="text" name="pprice" id="pprice" class="form-control" placeholder="Product Name" readonly>
+            </div>
+            
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-6">
+                <label for="uname">Product Qunatity</label>
+                <input type="number" name="q" id="q" class="form-control" placeholder="Product Quantity" required>
+            </div>
+            
+        </div>
+        
+        
+        
+        
+        <div class="row form-group">
+            <div class="col-md-12 text-right">
+                <button type="reset" id="cancel" class="btn btn-secondary">Cancel</button>
+                <button type="submit" id="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+        <div class="text-center" id="msg"></div>
+    </form>
+</div>
